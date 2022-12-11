@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Animation View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimationApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AnimationViewController" customModule="AnimationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
                                     <constraint firstItem="7mn-bz-4pW" firstAttribute="leading" secondItem="azK-U1-Tgc" secondAttribute="leading" constant="10" id="Cx7-L6-daS"/>
                                     <constraint firstItem="7mn-bz-4pW" firstAttribute="top" secondItem="azK-U1-Tgc" secondAttribute="top" constant="10" id="DiG-BO-bcx"/>
@@ -47,36 +47,52 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="morph"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInRight"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeIn"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-s8-klN">
-                                <rect key="frame" x="112.5" y="440" width="150" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Rb9-h1-QP4"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NO9-ws-BvD" customClass="SpringButton" customModule="SpringAnimation">
+                                <rect key="frame" x="60" y="532" width="255" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.34122115749999998" blue="0.59027079199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Run"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInRight"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeIn"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="nextAnimation" destination="BYZ-38-t0r" eventType="touchUpInside" id="SBp-ZV-e8x"/>
+                                    <action selector="nextAnimation" destination="BYZ-38-t0r" eventType="touchUpInside" id="PC5-ug-ys8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NO9-ws-BvD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="2MR-2v-ABA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="azK-U1-Tgc" secondAttribute="trailing" constant="60" id="Fgu-0G-LLO"/>
-                            <constraint firstItem="1Sh-s8-klN" firstAttribute="top" secondItem="azK-U1-Tgc" secondAttribute="bottom" constant="200" id="GHv-14-74U"/>
                             <constraint firstItem="azK-U1-Tgc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="HFa-oT-GKR"/>
                             <constraint firstItem="azK-U1-Tgc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="HmU-VR-7Yw"/>
-                            <constraint firstItem="1Sh-s8-klN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="STK-Ef-pzd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NO9-ws-BvD" secondAttribute="trailing" constant="60" id="hRM-q0-vz6"/>
                             <constraint firstItem="azK-U1-Tgc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kRz-o5-Qw4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NO9-ws-BvD" secondAttribute="bottom" constant="100" id="kt4-8B-ujx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="infoTextView" destination="7mn-bz-4pW" id="8fv-CV-9bw"/>
-                        <outlet property="nextButton" destination="1Sh-s8-klN" id="ZFz-cW-EkR"/>
+                        <outlet property="nextButton" destination="NO9-ws-BvD" id="7Sp-pJ-hCy"/>
                         <outlet property="springAnimationView" destination="azK-U1-Tgc" id="lvs-7Q-zHK"/>
                     </connections>
                 </viewController>
@@ -95,8 +111,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

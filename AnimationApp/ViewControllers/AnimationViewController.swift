@@ -9,12 +9,10 @@ import UIKit
 import SpringAnimation
 
 
-class ViewController: UIViewController {
+class AnimationViewController: UIViewController {
     
-    
-    @IBOutlet weak var nextButton: UIButton!
-    
-    
+    // MARK: - IB Outlets
+    @IBOutlet weak var nextButton: SpringButton!
     @IBOutlet weak var springAnimationView: SpringView!
     @IBOutlet weak var infoTextView: UITextView!
     
@@ -26,11 +24,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButton()
         setupView()
         setupViewAnimate()
     }
 
-    
+    // MARK: - IB Actions
     @IBAction func nextAnimation() {
         setupViewAnimate()
         nextButton.setTitle(nextAnimate?.rawValue, for: .normal)
@@ -38,17 +37,26 @@ class ViewController: UIViewController {
     }
     
     
+    // MARK: - Private metods
     private func setupViewAnimate() {
         setupAnimate()
         setupTextView()
     }
     
-    func setupView() {
+    private func setupView() {
         springAnimationView.layer.cornerRadius = 10
         springAnimationView.layer.shadowColor = UIColor.black.cgColor
         springAnimationView.layer.shadowOpacity = 0.5
         springAnimationView.layer.shadowOffset = CGSize(width: -5.0, height: 20.0)
         springAnimationView.layer.shadowRadius = 10
+    }
+    
+    private func setupButton() {
+        nextButton.layer.cornerRadius = 10
+        nextButton.layer.shadowColor = UIColor.black.cgColor
+        nextButton.layer.shadowOpacity = 0.5
+        nextButton.layer.shadowOffset = CGSize(width: -5.0, height: 20.0)
+        nextButton.layer.shadowRadius = 10
     }
     
     private func setupAnimate() {
